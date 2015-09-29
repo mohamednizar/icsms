@@ -1,0 +1,27 @@
+<br>
+<br>
+<br>
+<div class="row"  ng-controller="CRController">
+
+    <div class="col-md-12">
+        <h4>Course Management</h4>
+
+        <tabset>    
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" ng-click="clickTab(tab.template)" disabled="tab.disabled">
+                <br/>
+
+            </tab>
+        </tabset>
+        <div ui-view  >
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+</div>
+

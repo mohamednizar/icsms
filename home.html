@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
+<html lang="en"ng-app="myApp" >
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+        <title>ICSMS</title>
+
+
+
+        <!--Style-->
+        <link rel="stylesheet" href="./styles/lib/bootstrap/bootstrap.css"> 
+        <link rel="stylesheet" href="./styles/lib/morris/morris.css">
+        <link rel="stylesheet" href="./styles/lib/JQueryUI/jAlert-FB.css">
+         <link rel="stylesheet" href="./styles/lib/JQueryUI/jAlert-v3.css">
+
+
+
+        <link href="./styles/lib/plugin/bootstraptab.css" rel="stylesheet">
+        <link href="./styles/lib/jQueryUI/jquery-ui.css" rel="stylesheet">
+        <link href="./styles/lib/plugin/navSidebar.css" rel="stylesheet">
+        <link href="./styles/lib/plugin/datetimepicker.css" rel="stylesheet">
+        <!--<link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/ng-grid/css/ng-grid.css" />-->
+        <link rel="stylesheet" href="./styles/lib/angular/ui-grid.css">
+        <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
+
+        <!--Style-->
+
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <!--<script src="./scripts/lib/ie-emulation-modes-warning.js"></script> <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+
+    </head>
+
+    <body>
+
+
+        <div ui-view class="container-fluid"></div>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="RootController">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/dashboard">ICS Student Management System: {{ clock | date:'medium'}}</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">                       
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Main <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li ><a href="#/studentManagement/newStudent">Student Management</a></li>
+                                <!--<li><a href="#/reports">Reports</a></li>
+                                <li><a href="#/analytics">Analytics</a></li>-->
+                                <li><a href="#/accountsManagement/newExpences">Accounts</a></li>
+                                <li><a href="#/staffManagement/newStaff">Staff Management</a></li>
+                                <li><a href="#/courseManagement/newCourse">Course Management</a></li>
+                            </ul>
+                        </li>
+
+                        <!--  <li><a href="#/profile">Profile</a></li>-->
+                        <li><a href="#/help">Help</a></li>
+                    </ul>
+                      <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search..." ng-model="search" ng-keyup =" myFunc()">
+                     </form>
+                </div>
+
+            </div>
+        </nav>
+
+
+
+        <!--Library Files-->  
+        <script  src="./scripts/lib/jQuery/jquery-2.1.1.min.js"></script> 
+        <script  src="./scripts/lib/jQuery/jquery.soap.js"></script>        
+        <script src="./scripts/lib/bootstrap/bootstrap.min.js"></script>        
+        <script src="./scripts/lib/ie10-viewport-bug-workaround.js"></script>         
+        <script  src="./scripts/lib/angular/angular.min.js"></script>
+        <script src="./scripts/lib/angular/angular-ui-router.js"></script> 
+        <script src="./scripts/lib/angular/angular-route.js"></script>
+        <script src="./scripts/lib/angular/angular-animate.min.js"></script> 
+        <script src="./scripts/lib/angular/angular-messages.js"></script> 
+        <script src="./scripts/lib/raphael/raphael.js"></script> 
+        <script src="./scripts/lib/morris/morris.js"></script> 
+        <script src="./scripts/lib/plugins/moment.js"></script> 
+        <script src="./scripts/lib/plugins/ng-grid-flexible-height.js"></script> 
+        <script src="./scripts/lib/plugins/datetimepicker/datetimepicker.js"></script> 
+        <script src="./scripts/lib/plugins/bootstrapAngularJS/ui-bootstrap-tpls-0.11.2.min.js"></script> 
+        <script src="./scripts/lib/angular/lodash.min.js"></script>
+        <script src="./scripts/lib/angular/bluebird.js"></script>
+        <script src="./scripts/lib/angular/angular-google-maps.min.js"></script>
+        <script src="./scripts/lib/blockUI/blockUI.js"></script>
+        <script  src="./scripts/lib/angular/ui-grid.js"></script>
+        <script  src="./scripts/lib/jQueryUI/jquery-ui.js"></script> 
+        <script  src="./scripts/lib/jQueryUI/jAlert-FB.js"></script> 
+        <script  src="./scripts/lib/jQueryUI/jAlert-functions.min.js"></script>
+        <script  src="./scripts/lib/jQueryUI/jAlert.v3.min.js"></script> 
+        <script  src="./scripts/lib/jQueryUI/jquery-ui-1.10.4.autocomplete.js"></script> 
+        <script  src="./scripts/lib/angular/autocomplete.js"></script>
+        <!--Library Files End-->  
+
+        <!--Angular Controller-->
+
+        <script  src="./scripts/app/controllers/app.js"></script>
+        <script  src="./scripts/app/root.js"></script>
+        <script  src="./scripts/app/controllers/module.js"></script>
+        <script  src="./scripts/app/controllers/modulePopup.js"></script>
+
+        <script  src="./scripts/app/controllers/accounts/accountsManagement.js"></script>
+        <script  src="./scripts/app/controllers/accounts/partial/accounts.js"></script>
+        <script  src="./scripts/app/controllers/course/partial/course.js"></script>
+        <script  src="./scripts/app/controllers/course/courseManagement.js"></script>
+        <script  src="./scripts/app/controllers/student/studentManagement.js"></script>
+        <script  src="./scripts/app/controllers/student/partial/student.js"></script>
+        <script  src="./scripts/app/controllers/staff/staffmanagement.js"></script>
+        <script  src="./scripts/app/controllers/staff/partial/staff.js"></script>
+
+
+
+
+        <!--Angular Services-->
+
+        <script  src="./scripts/app/services/ajax.js"></script>
+        <script  src="./scripts/app/services/student/student.js"></script>
+        <script  src="./scripts/app/services/staff/staff.js"></script>
+        <script  src="./scripts/app/services/course/course.js"></script>
+        <script  src="./scripts/app/services/accounts/accounts.js"></script>
+        <script  src="./scripts/app/services/common/commonData.js"></script>
+
+
+
+        <!--Angular Factories-->  
+        <script src="./scripts/app/factories/utils.js"></script>
+        <script src="./scripts/app/factories/staff.js"></script>
+        <script src="./scripts/app/factories/student.js"></script>
+        <script src="./scripts/app/factories/accounts.js"></script>
+        <script src="./scripts/app/factories/autocomplete.js"></script>
+        
+
+
+
+
+
+
+
+    </body>
+</html>

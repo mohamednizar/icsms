@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container"  ng-controller="RootController">
+
+
+            
+
+
+
+
+
+            <div class="panel panel-primary">
+                <form class="navbar-form navbar-right form-group  ">
+                <input type="text" class="form-control middle middle" placeholder="Search..." ng-model="std_id" ng-keyup =" SearchStudent()">
+            </form>
+                <div class="panel-heading panel-title panel-default">Student  Details </div>
+                
+                <div class="panel-body panel-Blue">
+                    <div class="col-sm-12">
+
+
+                        <div class="form-group col-sm-6 ">
+                            <div class="grid-style" ng-grid="StudentCoursesTable2" style="height:200px">
+
+
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                        <div class="" ng-repeat=" details in studentDetail" ng-controller="RootController">
+
+                            <table class="table-responsive table-striped  table-hover bg-info">
+                                <thead class="bg-primary"><div class="text-success">Basic Details</div></thead>
+                                <tbody class="tabs-below container-fluid">
+                                <tr class="text-success text-right">
+                                    <th>First Name</th><th>:{{details.first_name}}</th>
+                                </tr>
+                                <tr class="text-success">
+                                    <th>Last Name </th><th>:{{details.last_name}}</th>
+                                </tr>
+                                <tr class="text-success">
+                                    <th>Gender </th><th>:{{details.sex}}</th>
+                                </tr>
+                                <tr class="text-success">
+                                    <th>DOB </th><th>:{{details.dob}}</th>
+                                </tr>
+                                <tr class="text-success">
+                                    <th>Address </th><th>:{{details.address}}</th>
+                                </tr>
+                                 <tr class="text-success">
+                                    <th>Phone  </th><th>:{{details.phone}}</th>
+                                </tr>
+                                <tr class="text-success">
+                                    <th>School </th><th>:{{details.school}}</th>
+                                </tr>
+                                <tr class="text-success">
+                                    <th>Grade </th><th>:{{details.grade}}</th>
+                                </tr>
+                                <tr class="text-success">
+                                  <th >Medium </th><th>:{{details.medium}}</th>
+                                </tr>
+                       
+                            </tbody>
+                            </table>
+                        </div>
+                        
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+
+        <div ui-view  >
+        </div>
+
+    </div>
+
+</body>
+</html>

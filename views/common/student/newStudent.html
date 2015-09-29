@@ -1,0 +1,204 @@
+
+<div class="row col-lg-12 col-sm-12 " >
+    <form class="form-horizontal" role="form" name="newstudent" ng-submit="submitForm(newstudent.$valid)" ng-controller="StudentController" novalidate>
+
+        <div class="col-xs-4">
+            <div class="panel panel-primary" >
+                <div class="panel-heading">
+                    Student Personal Information
+                </div>
+                <div class="panel-body">
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">First Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50" minlength="2" name="fname" required="" placeholder="First Name"  class="form-control input-sm"  data-ng-model="firstName">
+                            </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <input type="text"  class="form-control input-sm" name="lname" required="" placeholder="Last Name"   ui-Autocomplete="deviceTypeAutocomplete"  data-ng-model="lastName"/>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Gender</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50"  placeholder="Gender"  class="form-control input-sm" name="gender" required="" ui-Autocomplete="genderAutocomplete" data-ng-model="gender.Name">
+                            </div>
+
+                    </div>
+                    
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Address </label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50"  name="address" required="" placeholder="Address Number"  class="form-control input-sm" data-ng-model="address">
+                            </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Phone </label>
+                        <div class="col-sm-8">
+                            <input type="numeber" maxlength="50"  name="phone" required="" placeholder="Phone"  class="form-control input-sm" data-ng-model="phone">
+                            </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Birthday</label>
+                        <div class="col-sm-4">
+                            <p class="input-group">
+                                <input type="text" class="form-control input-sm"  name="dob" required="" datepicker-popup="{{format}}" ng-model="dob" is-open="birthdayopened" min-date="minDate"  max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"  ng-="true" close-text="Close" placeholder="Birthday" disabled=""/>
+
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="birthdayPicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">School</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50"  placeholder="School"  class="form-control input-sm" name="school"  required="" data-ng-model="school">
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Grade</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50"  placeholder="Grade"  class="form-control input-sm" name="grade" required="" ui-Autocomplete="gradeAutocomplete" data-ng-model="grade.Name">
+                           
+                        </div>
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Medium</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50"  placeholder="Medium"  class="form-control input-sm" name="medium" required="" ui-Autocomplete="mediumAutocomplete" data-ng-model="medium.Name">
+                           
+                        </div>
+
+                    </div>
+                    
+                    
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        
+
+<div class="col-xs-4">
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+                Subjects
+            </div>
+        
+        
+        <div class="panel-body">
+            <div class="form-group">
+                        <label class="col-sm-6 control-label">Admission Type</label>
+                        <div class="col-sm-6">
+                            <input type="text" maxlength="50"  placeholder="Admission Type"  class="form-control input-sm" name="addType" required="" ui-Autocomplete="admissionTypeAutocomplete" data-ng-model="admissionType.Name">
+                            
+                        </div>
+
+                    </div>
+            
+             <div class="form-group" >
+                        <label class="col-sm-6 control-label " >Courses</label>
+                        <div class="col-sm-12">
+                            <div class="grid-style " style="height: 140px;"  ng-submit="courseGrid" data-ng-grid="courseGrid"></div>
+                            
+                        </div> 
+                       
+                        
+                    </div> 
+            <div class="form-group ">
+
+                        <div class="pull-right pull-right-padding-right left col-lg-offset-5 ">
+                                                                          
+                            <input id="Button2" type="button" class="btn btn-info " value="Update" data-ng-click="CreateStudent()" />
+                            <input id="Button2" type="button" class="btn btn-info " value="Clear" data-ng-click="clearStudent()" />
+                        </div>
+
+                    </div>
+            
+             </div>
+                   
+           </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                <div class="panel-heading">Check List</div>
+        <p ng-show="newstudent.fname.$invalid && !userForm.fname.$pristine" class="text-danger col-lg-offset-1">* First Name is required.</p>
+        <p ng-show="!newstudent.fname.$invalid " class="text-success col-sm-4 " >First Name:<div ng-bind="firstName" class="text-success "></div></p>
+        
+        <p ng-show="newstudent.lname.$invalid && !userForm.lname.$pristine" class="text-danger col-lg-offset-1">* Last Name is required.</p>
+        <p ng-show="!newstudent.lname.$invalid " class="text-success col-sm-4 " >Last Name:<div ng-bind="lastName" class="text-success "></div></p>
+        
+        <p ng-show="newstudent.gender.$invalid && !userForm.gender.$pristine" class="text-danger col-lg-offset-1">* Pleas select The Gender.</p>
+        <p ng-show="!newstudent.gender.$invalid " class="text-success col-sm-4" >Gender:<div ng-bind="gender.Name" class="text-success"></div></p>
+        
+        <p ng-show="newstudent.address.$invalid && !userForm.address.$pristine" class="text-danger col-lg-offset-1">* Address is required.</p>
+        <p ng-show="!newstudent.address.$invalid " class="text-success col-sm-4" >Address:<div ng-bind="address" class="text-success"></div></p>
+         
+        <p ng-show="newstudent.phone.$invalid && !userForm.phone.$pristine" class="text-danger col-lg-offset-1">* Phone is required.</p>
+        <p ng-show="!newstudent.phone.$invalid " class="text-success col-sm-4" >Phone<div ng-bind="phone" class="text-success"></div></p>
+        
+        <p ng-show="newstudent.dob.$invalid && !userForm.dob.$pristine" class="text-danger col-lg-offset-1">* Pleas pick a DOB.</p>
+         <p ng-show="!newstudent.dob.$invalid " class="text-success col-sm-4" >DOB<div ng-bind="dob" class="text-success"></div></p>
+       
+        <p ng-show="newstudent.school.$invalid && !userForm.school.$pristine" class="text-danger col-lg-offset-1">* Pleas provide the school.</p>
+        <p ng-show="!newstudent.school.$invalid " class="text-success col-sm-4" >School<div ng-bind="school" class="text-success"></div></p>
+       
+        <p ng-show="newstudent.grade.$invalid && !userForm.grade.$pristine" class="text-danger col-lg-offset-1">* Pleas select the grade.</p>
+         <p ng-show="!newstudent.grade.$invalid " class="text-success col-sm-4" >Grade<div ng-bind="grade.Name" class="text-success"></div></p>
+         
+        <p ng-show="newstudent.medium.$invalid && !userForm.medium.$pristine" class="text-danger col-lg-offset-1">* Pleas select Medium</p>
+         <p ng-show="!newstudent.medium.$invalid " class="text-success col-sm-4" >Medium<div ng-bind="medium.Name" class="text-success"></div></p>
+       
+
+        <p ng-show="newstudent.addType.$invalid && !userForm.addType.$pristine" class="text-danger col-lg-offset-1">* Pleas select the Admission type.</p>
+         <p ng-show="!newstudent.addType.$invalid " class="text-success col-sm-4" >Admission Type<div ng-bind="admissionType.Name" class="text-success"></div></p>
+                    
+         <div class="form-group" >
+            <div class="grid-style col-sm-10 col-lg-offset-1 "  style="height: 120px;" data-ng-grid="myCourseGrid"></div>
+         </div>             
+                 
+        
+            <p ng-show="!newstudent.$invalid " class="text-success">* Well done. add to conform the registration<input id="Button2" type="submit" class="btn   btn-primary col-lg-offset-2 " value="Add" ng-disabled="newstudent.$invalid"   data-ng-click="CreateStudent()" />
+           </p>
+            
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    </form> 
+
+</div>
+

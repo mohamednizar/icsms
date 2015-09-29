@@ -1,0 +1,61 @@
+
+<form class="form-horizontal" role="form" name="feeCollection" ng-controller="StaffController"  >
+            <div class="col-xs-4 row">
+                <div class="panel panel-primary" >
+                <div class="panel-heading">
+                   Course By Student Id
+                </div>
+                <div class="panel-body">
+         <div class="form-group">
+                        <div class="col-sm-3">
+                            <input type="number" maxlength="50" name="stdId" required   placeholder="Staff Id"   class="form-control input-sm stdId"   ng-keyup="getStaffCourse(staffId)" data-ng-model="staffId">
+                        </div>
+                        
+         </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+               <div class="grid-style" ng-grid="StaffCoursesTable" style="height:200px">
+    
+    
+                </div>
+                    </div>
+                </div>
+            </div>
+                    
+                </div>
+                
+                
+                 
+            </div>
+                <div class="col-xs-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    Today Payment
+                </div>
+                    <div class="panel-body">
+                      
+                 <div class="form-group">
+                     <div class="col-sm-3 col-lg-offset-9 has-feedback ">
+                         
+                         <input id="Button2" type="submit" class="btn glyphicon glyphicon-ok-circle btn-success "  value="Pay"  data-ng-click="  PayCoursefee()" />                                              
+                     </div>
+                     <div >{{getTotal(row)}}</div>
+                </div>
+                    </div>
+                    
+                </div>
+ 
+                </div>
+   
+            
+        
+        </form>
+
+        
+    
+    
+
+  
+
+
+

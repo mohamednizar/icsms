@@ -1,0 +1,59 @@
+<h4>Staff Course Management</h4>
+<div class="row col-lg-12 col-sm-12 " >
+    <form class="form-horizontal" role="form"  ng-submit="submitForm(staffCourse.$valid)"   ng-controller="StaffController" >
+
+        <div class="col-xs-6 ">
+            <div class="panel panel-primary" >
+                <div class="panel-heading">
+                    Staff Information
+                </div>
+                <div class="panel-body">
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Student Id</label>
+                        <div class="col-sm-4">
+                            <input type="number" maxlength="50" name="staffId" required   placeholder="Staff Id"   class="form-control input-sm stdId"  ui-Autocomplete="StudenIdAutocomplete"  data-ng-model="staffId">
+                            <p ng-show="staffCourse.staffId.$invalid && !staffCourse.staffId.$pristine" class="text-danger">* Student Id</p>
+                            <p ng-show="staffCourse.staffId.$type" class="text-danger">* Student Number</p>
+
+                        </div>
+
+                    </div>
+
+              
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label " >Courses</label>
+                        <div class="col-sm-12">
+                            <div class="grid-style " style="height: 150px;" data-ng-grid="courseGrid"></div>
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="grid-style "  style="height: 158px;" data-ng-grid="myCourseGrid"></div>
+                          
+                        </div> 
+                    </div> 
+
+
+
+
+
+                    <div class="form-group col-sm-12">
+
+                        <div class="separator pull-right">
+                        </div>
+                        <div class="pull-right pull-right-padding-right ">
+                            <input  id="Button2" type="button" ngCellText class="btn btn-success btn-primary " value="Add" data-ng-click="createStaffCourse()" />                                              
+                            <input id="Button2" type="button" class="btn btn-info " value="Update" data-ng-click="" />
+                            <input id="Button2" type="button" class="btn btn-info " value="Clear" data-ng-click="clearStaff()" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </form> 

@@ -1,0 +1,52 @@
+
+<form class="form-horizontal" role="form" name="stdeuntCourse" ng-submit="submitForm(stdeuntCourse.$valid)" ng-controller="StudentController" novalidate>
+<div class="col-xs-6">
+            <div class="panel panel-primary"  ng-controller="StudentController"  >
+                <div class="panel-heading">
+                    Student Admission
+                </div>
+                <div class="panel-body">
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Student Id</label>
+                        <div class="col-sm-4">
+                            <input type="number" maxlength="50" name="stdId" required   placeholder="Student Id"   class="form-control input-sm stdId"   data-ng-model="std_id.Id" >
+                            <p ng-show="stdeuntCourse.stdId.$invalid && !stdeuntCourse.stdId.$pristine" class="text-danger">* Student Id</p>
+                            <p ng-show="stdeuntCourse.stdId.$type" class="text-danger">* Student Number</p>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-12 control-label " >Courses</label>
+                        <div class="col-sm-12">
+                            <div class="grid-style " style="height: 158px;"  ng-submit="courseGrid" data-ng-grid="courseGrid"></div>
+                            
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="grid-style "  style="height: 158px;" data-ng-grid="myCourseGrid"></div>
+                          
+                        </div> 
+                        
+                    </div> 
+                    <div class="form-group col-sm-12">
+
+                        <div class="separator pull-right">
+                        </div>
+                        <div class="pull-right pull-right-padding-right ">
+                            <input id="Button2" type="submit" class="btn btn-primary " value="Add" ng-disabled="stdeuntCourse.$invalid"   data-ng-click="createStudentCourse()" />                                              
+                            <input id="Button2" type="button" class="btn btn-info " value="Update" data-ng-click="CreateStudent()" />
+                            <input id="Button2" type="button" class="btn btn-info " value="Clear" data-ng-click="clearStudent()" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            
+
+        </div>
+    
+    
+</form>

@@ -1,0 +1,126 @@
+<h5 class="col-sm-12">New Staff Registration</h5>
+<div class="row col-lg-12 col-sm-12 " >
+    <form class="form-horizontal" role="form" name="newstaff" ng-submit="submitForm(newstaff.$valid)"  ng-controller="StaffController" novalidate="" >
+
+        <div class="col-xs-4 ">
+            <div class="panel panel-primary" >
+                <div class="panel-heading">
+                    Staff Information
+                </div>
+                <div class="panel-body">
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">First Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50" placeholder="First Name"  name="fname" required=""  ngCellText class="form-control input-sm"   data-ng-model="firstName" >
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Last Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50"  placeholder="First Name"  name="lname"  required="" class="form-control input-sm"  data-ng-model="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Address </label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="50"  placeholder="Address"  name="address"  required="" class="form-control input-sm" data-ng-model="address" required >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Phone Number</label>
+                        <div class="col-xs-3">
+                            <input type="text"  class="form-control input-sm"  placeholder="Type"  ui-Autocomplete="phoneNumberTypeAutocomplete"  data-ng-model="phoneNumberType.Name"/>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="" maxlength="50"   class="form-control input-sm" name="phone" required="" data-ng-model="Phone" placeholder="Number">
+                        </div>
+                        <div class="col-sm-1">
+                            <span class="input-group-sm">
+                                <button data-ng-show="phoneId === ''" type="button" class="btn btn-success btn-sm" ng-click="addPhoneNumber()"><i class="glyphicon glyphicon-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label ">Phone Numbers</label>
+                        <div class="col-sm-8">
+                            <div class="grid-style" style="height: 70px;" data-ng-grid="gridPhone"></div>
+                        </div> 
+                    </div> 
+
+
+
+
+
+                    <div class="form-group col-sm-12">
+
+                        <div class="separator pull-right">
+                        </div>
+                        <div class="pull-right pull-right-padding-right ">
+                             <input id="Button2" type="button" class="btn btn-info " value="Update" data-ng-click="" />
+                            <input id="Button2" type="button" class="btn btn-info " value="Clear" data-ng-click="ClearStaff()" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-xs-4 ">
+            <div class="panel panel-primary" >
+                <div class="panel-heading">
+                Courses
+                </div> 
+                 <div class="panel-body">
+                <div class="form-group">
+                        
+                        <div class="col-sm-12">
+                            <div class="grid-style " style="height: 150px;" data-ng-grid="courseGrid"></div>
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="grid-style "  style="height: 158px;" data-ng-grid="myCourseGrid"></div>
+
+                        </div> 
+                    </div> 
+                 </div>
+            </div> 
+        </div>
+        <div class="form-group">
+            <div class="col-xs-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Check List</div>
+        <p ng-show="newstaff.fname.$invalid && !userForm.fname.$pristine" class="text-danger col-lg-offset-1">* First Name is required.</p>
+        <p ng-show="!newstaff.fname.$invalid " class="text-success col-sm-4 " >First Name:<div ng-bind="firstName" class="text-success "></div></p>
+        
+        <p ng-show="newstaff.lname.$invalid && !userForm.lname.$pristine" class="text-danger col-lg-offset-1">* Last Name is required.</p>
+        <p ng-show="!newstaff.lname.$invalid " class="text-success col-sm-4 " >Last Name:<div ng-bind="lastName" class="text-success "></div></p>
+        
+         
+        <p ng-show="newstaff.address.$invalid && !userForm.address.$pristine" class="text-danger col-lg-offset-1">* Address is required.</p>
+        <p ng-show="!newstaff.address.$invalid " class="text-success col-sm-4" >Address:<div ng-bind="address" class="text-success"></div></p>
+         
+        <p ng-show="newstaff.phone.$invalid && !userForm.phone.$pristine" class="text-danger col-lg-offset-1">* Phone is required.</p>
+        <p ng-show="!newstaff.phone.$invalid " class="text-success col-sm-4" >Phone<div ng-bind="phone" class="text-success"></div></p>
+        
+           
+         <div class="form-group" >
+            <div class="grid-style col-sm-10 col-lg-offset-1 "  style="height: 120px;" data-ng-grid="myCourseGrid"></div>
+         </div>             
+                 
+        
+            <p ng-show="!newstaff.$invalid " class="text-success">* Well done. add to conform the registration<input id="Button2" type="submit" class="btn   btn-primary col-lg-offset-2 " value="Add" ng-disabled="newstaff.$invalid"   data-ng-click="CreateStaff()" />
+           </p>
+            
+            
+            </div>
+            </div>
+        </div>
+
+    </form> 
